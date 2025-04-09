@@ -29,7 +29,13 @@
                             foreach ($contacts as $contcat) { ?>
                                 <tr>
                                     <td><?php echo $c++; ?></td>
-                                    <td><?php echo $contcat->first_name . ' ' . $contcat->last_name; ?></td>
+                                    <td>
+                                        <?php echo $contcat->first_name . ' ' . $contcat->last_name; ?>
+                                        <span class="badge badge-<?php echo $contcat->is_supplier == 1 ? 'danger' : 'primary' ?>">
+                                            <?php echo $contcat->is_supplier == 1 ? 'Supplier + ' : '' ?>
+                                            Customer
+                                        </span>
+                                    </td>
                                     <td><?php echo $contcat->phone; ?></td>
                                     <td><?php echo $contcat->email; ?></td>
                                     <td><?php echo $contcat->address . ' ' . $contcat->city . ' ' . $contcat->state . ' ' . $contcat->country . ', ' . $contcat->zip_code; ?></td>

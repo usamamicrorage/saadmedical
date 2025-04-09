@@ -9,6 +9,16 @@
             <div class="modal-body">
 
                 <form id="customer_form" action="<?= URL ?>dashboard/contact/addContact" method="post" class="text-start mb-2 validate_form">
+                    <div class="row mb-2">
+                        <div class="col-md-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="is_supplier" value="" id="is_supplier">
+                                <label class="form-check-label" for="is_supplier">
+                                    Please Check if this contact is supplier
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-2">

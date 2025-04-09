@@ -19,6 +19,7 @@ const addCustomer = (btn) => {
 
     document.querySelectorAll('#customer_form input').forEach((input) => {
         input.value = '';
+        input.checked = false
     })
 
     const modal = new bootstrap.Modal(document.getElementById('customerModal'));
@@ -43,6 +44,7 @@ const fetchContact = (btn) => {
             document.querySelector('#country').value = data.country;
             document.querySelector('#zip_code').value = data.zip_code;
             document.querySelector('#customer_id').value = data.id;
+            document.querySelector("#is_supplier").checked = data.is_supplier == 1 ? true : false;
 
             const action_btn = document.querySelector('#add_customer_btn')
             action_btn.textContent = 'Update Contact';

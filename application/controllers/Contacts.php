@@ -40,7 +40,8 @@ class Contacts extends MY_Controller
             'state' => $data['state'],
             'zip_code' => $data['zip_code'],
             'country' => $data['country'],
-            'loyalty_points' => 0
+            'loyalty_points' => 0,
+            'is_supplier' => $data['is_supplier'] ?? 0
         ];
 
         $insert = $this->db->insert('customers', $arr);
@@ -68,6 +69,7 @@ class Contacts extends MY_Controller
             'state' => $data['state'],
             'zip_code' => $data['zip_code'],
             'country' => $data['country'],
+            'is_supplier' => $data['is_supplier'] ?? 0
         ];
         $update = $this->db->where('id', $data['id'])->update('customers', $arr);
         if ($update) {
@@ -86,7 +88,7 @@ class Contacts extends MY_Controller
     {
         $customer = $this->Handler->get_row('customers', ['where' => ['id' => $id]]);
         if ($customer) {
-            echo json_encode(['status' => 'success', 'message' => 'Customer Fetched successfully.', 'data' => $customer]);
+            echo json_encode(['status' => 'success', 'message' => 'Contact Fetched successfully.', 'data' => $customer]);
         } else {
             echo json_encode(['status' => 'error', 'message' => 'Failed to Fetche customer!']);
         }
@@ -97,7 +99,7 @@ class Contacts extends MY_Controller
         $id = $this->input->post('id');
         $delete = $this->db->delete('customers', ['id' => $id]);
         if ($delete) {
-            echo json_encode(['status' => 'success', 'message' => 'Customer deleted successfully.']);
+            echo json_encode(['status' => 'success', 'message' => 'Contact deleted successfully.']);
         } else {
             echo json_encode(['status' => 'error', 'message' => 'Failed to delete customer!']);
         }
